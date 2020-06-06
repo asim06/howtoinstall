@@ -49,3 +49,8 @@ systemctl enable apache2
 http://server_ip/zabbix  adresi ile bağlantı sağlanır. Zabbix şifreniz zabbixDBpass 
 
 #İşlem sonrası Admin/Zabbix ile giriş yapılır.
+
+https://asimmisirli.com adresinden bunun gibi bir çok yapılandırma için faydalanabilir.
+
+
+kaynak https://bestmonitoringtools.com/how-to-install-zabbix-server-on-ubuntu/
