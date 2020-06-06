@@ -37,3 +37,17 @@ Zabbix Server ve Ajanı başlatılır
 sudo systemctl restart zabbix-server zabbix-agent 
 sudo systemctl enable zabbix-server zabbix-agent
 
+Zabbix php configure dosyası açılır aşağıdaki yorum satırı aktif hale getirilir.Aşağıdaki şekilde yazılarak kayıt edilir.
+sudo nano /etc/zabbix/apache.conf
+“# php_value date.timezone Europe/Riga”
+php_value date.timezone Europe/Istanbul
+
+Web Server Yeniden başlatma
+sudo systemctl restart apache2
+sudo systemctl enable apache2
+
+http://server_ip/zabbix  adresi ile bağlantı sağlanır. Zabbix şifreniz zabbixDBpass 
+
+İşlem sonrası Admin/Zabbix ile giriş yapılır.
+
+
