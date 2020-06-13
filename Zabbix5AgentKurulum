@@ -1,4 +1,7 @@
 #Zabbix5 Agent kurulumu Pardus 19 için yapılacaktır. Debian 10/9 ve diğer Parduslar dağıtımlarında kullanabilirsiniz
+#Pardus10 isimli(hostname) client ip adresi 192.168.1.8
+#Zabbix5 Server 192.168.1.9
+
 wget https://repo.zabbix.com/zabbix/5.0/debian/pool/main/z/zabbix-release/zabbix-release_5.0-1+buster_all.deb
 dpkg -i zabbix-release_5.0-1+buster_all.deb 
 
@@ -22,9 +25,30 @@ Hostname=Pardus10
 Örnekte olduğu gibi değiştirilmelidir.
 
 
-
-
+#Zabbix ajanın aktif,başlatma ve durumunu kontrol etmek için aşağıdaki komutlar kullanılır.
 
 systemctl enable zabbix-agent
 systemctl start zabbix-agent
 systemctl status zabbix-agent
+
+
+
+#Client üzerinde yapılan işlemler sonrasında Zabbix arayüzünden,
+Configuration -> Hosts Create Host 
+Host name:Yapılandırma dosyasına vermiş olduğunuz bilgisayar ismi
+Groups:
+Interfaces 
+Agent: Zabbix ajanı kurulan client makine
+
+Örnek içerik
+Host name:pardus10
+Group:Linux servers
+Agent:192.168.1.8
+
+Add ile eklenir.
+Tekrar hosts alanından  pardus10 isimli hosta tıklanır ve template eklenir.
+Template OS Linux by Zabbix agent update işlemi ile zabbix enable olması beklenir.
+
+
+
+
