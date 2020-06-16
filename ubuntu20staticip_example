@@ -1,0 +1,34 @@
+ip a
+#Örnek bir ağ kartının ekran çıktısı
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:81:e6:be brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.4/24 brd 192.168.1.255 scope global dynamic enp0s3
+       valid_lft 85575sec preferred_lft 85575sec
+    inet6 fe80::a00:27ff:fe81:e6be/64 scope link 
+       valid_lft forever preferred_lft 
+       
+       
+#nano editörü ile yaml file açlılır. Aşağıdaki yazım şekline uyulacak şekilde gerekli addresler yazılır.
+
+        
+nano /etc/netplan/00-installer-config.yaml
+
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      addresses: [192.168.1.4/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [192.168.1.1,8.8.8.8]
+  version: 2
+
+netplan apply
+
+
+
+       
+       
+       
+       
+
