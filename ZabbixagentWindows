@@ -1,0 +1,20 @@
+#Windows dağıtımları için zabbix agent 5.0 LTS yapılandırmasını içerir.
+https://www.zabbix.com/download_agents adresinden indirilir.
+C:\ dizini altına zabbix klasörü oluşturulur.
+C:\zabbix\ klasörü altına indirdiğiniz ajan dosyalarını atmanız gerekir. bin ve conf dosyaları burada olmalıdır
+
+zabbix_agentd.conf dosyası içeresinde Server, ServerActive ve Hostaname yapılandırmalı değişmelidir
+
+Server=zabbix_Server_ip adresi yazılır
+ServerActive=zabbix_Server_ip adresi
+Hostname=host ismi yazılır.
+
+
+Open command prompt as administrator ile cmd yetkili kullanıcı ile açılır.
+zabbix_agentd.exe --config C:\zabbix\conf\zabbix_agentd.conf --install
+zabbix_agentd.exe --config C:\zabbix\conf\zabbix_agentd.conf --start
+
+
+Windows firewallden izin verilmelidir.
+
+
